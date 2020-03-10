@@ -1,0 +1,15 @@
+INSERT INTO UserInfo (name, id, password, salt, passwordHash , gender, email, type)
+VALUES
+('name1', 'id1', 'password1', 'saltsaltsaltsaltsal1', 'password1Hash', 'm', 'email1@gmail.com', 'unconfirmed'),
+('name1', 'id2', 'password2', 'saltsaltsaltsaltsal2', 'password2Hash', 'f', 'email2@gmail.com', 'unconfirmed'),
+('name1', 'id3', 'password3', 'saltsaltsaltsaltsal3', 'password3Hash', 'm', 'email3@gmail.com', 'unconfirmed');
+
+gender = {
+    "m": "male",
+    "f": "female",
+}
+
+type = [
+    "unconfirmed",
+    "confirmed",
+]

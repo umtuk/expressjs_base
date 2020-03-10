@@ -1,0 +1,94 @@
+index
+router.get /
+router.post /User/DeleteAccount
+router.post /User/SingIn
+router.get /User/SignOut
+router.post /User/SingUp
+router.get /User/SingUpConfirm
+router.get /User/UpdateAccess
+
+
+router.get /
+
+/*
+*/
+res.render('index', { title: 'Express' });
+
+
+router.post /User/DeleteAccount
+/*
+    body.id
+    body.password
+    headers.accessToken
+*/
+send({ 
+    id: userAccount.id 
+});
+
+
+router.post /User/SingIn
+
+/*
+    body.id
+    body.password
+*/
+send({
+    name: userAccount.name,
+    id: userAccount.id,
+    gender: userAccount.gender,
+    email: userAccount.email,
+    type: userAccount.type,
+    accessToken: userAccount.accessToken,
+    accessTime: userAccount.accessTime,
+});
+
+
+router.get /User/SignOut
+/*
+    params.id
+    headers.accessToken
+*/
+send({
+    id: userAccount.id,
+});
+
+
+router.post /User/SignUp
+
+/*
+    body.name
+    body.id
+    body.password
+    body.gender
+    body.email
+ */
+send({
+    name: userAccount.name,
+    id: userAccount.id,
+    gender: userAccount.gender,
+    email: userAccount.email,
+    type: userAccount.type,
+    accessToken: userAccount.accessToken,
+    accessTime: userAccount.accessTime,
+});
+
+
+router.get /User/SingUpConfirm
+
+/*
+    params.id
+    params.confirmStr
+*/
+res.render('index', { title: 'Success' });
+
+
+router.get /user/UpdateAccess
+/*
+    params.id
+    headers.accessToken
+*/
+send({
+    id: userAccount.id,
+    accessToken: userAccount.accessToken,
+    accessTime: userAccount.accessTime,
+});

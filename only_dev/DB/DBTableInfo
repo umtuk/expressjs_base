@@ -1,0 +1,23 @@
+CREATE TABLE `UserAccount` (
+    `seq` int unsigned NOT NULL auto_increment,
+    `name` varchar(40) NOT NULL,
+    `id` char(40) NOT NULL,
+    `password` varchar(40) NOT NULL,
+    `salt` char(16) NOT NULL,
+    `passwordHash` text NOT NULL,
+    `gender` varchar(2) NOT NULL,
+    `email` char(80) NOT NULL,
+    `type` varchar(24) NOT NULL,
+    `accessToken` text,
+    `acessTime` bigint unsigned,
+    PRIMARY KEY(`seq`, `id`, `email`)
+) ENGINE=InnoDB DEFAULT CHARSET = utf8;
+
+CREATE TABLE `RequestSignUp` (
+    `seq` int unsigned NOT NULL auto_increment,
+    `id` char(40) NOT NULL,
+    `email` char(80) NOT NULL,
+    `requestedTime` bigint unsigned NOT NULL,
+    `confirmStr` char(64) NOT NULL,
+    PRIMARY KEY(`seq`, `id`, `email`)
+ ) ENGINE=InnoDB DEFAULT CHARSET = utf8;
