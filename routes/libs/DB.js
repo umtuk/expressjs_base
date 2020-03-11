@@ -93,14 +93,14 @@ DB.queryOnlyOne = function(query, params) {
 
 DB.utils = function() {};
 
-DB.utils.checkAccessToken = function(accessToke, id) {
+DB.utils.checkAccessToken = function(accessToken, id) {
     return new Promise((resolve, reject) => {
-        var query = 'SELECT id, accessTime FROM UserAccount WHERE accessToken = ?';
-        var params = [accessToken];
+        var query = 'SELECT accessToken, accessTime FROM UserAccount WHERE id = ?';
+        var params = [id];
         DB.queryOnlyOne(query, params).then(
             results => {
                 var accessTimeLimit = (results[0].accssTime - 0) + 10 * 60 * 1000;
-                if (id == results[0].id) {
+                if (accessToken == results[0].accessToken) {
                     if (accessTimeLimit < new Date().getTime()) {
                         reject('checkAccessToken: Access token has expired.');
                     } else {
